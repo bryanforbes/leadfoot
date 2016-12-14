@@ -1,15 +1,14 @@
-import registerSuite = require('intern!object');
-import * as assert from 'intern/chai!assert';
-import Promise = require('dojo/Promise');
+import { assert } from 'chai';
 import * as util from './support/util';
-import Command, { Context } from 'src/Command';
-import Session from 'src/Session';
+import Command, { Context } from '../../src/Command';
+import Session from '../../src/Session';
 import { IRequire } from 'dojo/loader';
+import Promise = require('dojo/Promise');
 import Test = require('intern/lib/Test');
 
 declare const require: IRequire;
 
-registerSuite(function () {
+export default function suite() {
 	let session: Session;
 
 	return {
@@ -377,4 +376,4 @@ registerSuite(function () {
 			return command.useElement('arg1');
 		}
 	};
-});
+}

@@ -1,11 +1,10 @@
-import registerSuite = require('intern!object');
-import * as assert from 'intern/chai!assert';
-import * as util from 'src/lib/util';
+import { assert } from 'chai';
+import * as util from '../../../src/lib/util';
 
 declare let __cov_abcdef: number;
 declare let a: any;
 
-registerSuite({
+exports.suite = {
 	name: 'lib/leadfoot/util',
 
 	'.sleep'() {
@@ -48,4 +47,4 @@ registerSuite({
 		});
 		assert.match(script, /^return \(function \(\) \{\s*return a;\s*\}\)\.apply\(this, arguments\);$/);
 	}
-});
+};

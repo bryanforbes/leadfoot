@@ -1,19 +1,18 @@
-import registerSuite = require('intern!object');
-import * as assert from 'intern/chai!assert';
-import Promise = require('dojo/Promise');
+import { assert } from 'chai';
 import * as util from './support/util';
-import { strategies, suffixes } from 'src/lib/strategies';
+import { strategies, suffixes } from '../../src/lib/strategies';
 import { IRequire } from 'dojo/loader';
-import Test = require('intern/lib/Test');
-import Element from 'src/Element';
+import Element from '../../src/Element';
 import { WebDriverCookie, Geolocation } from '../../src/interfaces';
+import Promise = require('dojo/Promise');
+import Test = require('intern/lib/Test');
 
 declare const require: IRequire;
 declare let interns: any;
 
 type Position = { x: number, y: number };
 
-registerSuite(function () {
+export default function suite() {
 	let session: any;
 	let resetBrowserState = true;
 
@@ -1601,4 +1600,4 @@ registerSuite(function () {
 		'local storage': createStorageTests('Local'),
 		'session storage': createStorageTests('Session')
 	};
-});
+}

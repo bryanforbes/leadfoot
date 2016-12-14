@@ -1,15 +1,14 @@
-import registerSuite = require('intern!object');
-import * as assert from 'intern/chai!assert';
-import Command from 'src/Command';
-import * as compat from 'src/compat';
+import { assert } from 'chai';
+import Command from '../../src/Command';
+import * as compat from '../../src/compat';
 import * as util from './support/util';
 import { IRequire } from 'dojo/loader';
 import Test = require('intern/lib/Test');
-import Session from 'src/Session';
+import Session from '../../src/Session';
 
 declare const require: IRequire;
 
-registerSuite(function () {
+export default function suite() {
 	let command: any;
 	return {
 		name: 'leadfoot/compat',
@@ -118,4 +117,4 @@ registerSuite(function () {
 					});
 		}
 	};
-});
+}

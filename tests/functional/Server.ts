@@ -1,14 +1,13 @@
-import registerSuite = require('intern!object');
-import * as assert from 'intern/chai!assert';
+import { assert } from 'chai';
 import * as util from './support/util';
 import Promise = require('dojo/Promise');
-import Server from 'src/Server';
-import Session from 'src/Session';
+import Server from '../../src/Server';
+import Session from '../../src/Session';
 import * as urlUtil from 'url';
-import Test = require('intern/lib/Test');
 import { Capabilities } from '../../src/interfaces';
+import Test = require('intern/lib/Test');
 
-registerSuite(function () {
+export default function suite() {
 	let server: Server;
 
 	return {
@@ -194,4 +193,4 @@ registerSuite(function () {
 			}
 		}
 	};
-});
+}

@@ -1,11 +1,10 @@
-import registerSuite = require('intern!object');
-import * as assert from 'intern/chai!assert';
-import Promise = require('dojo/Promise');
+import { assert } from 'chai';
 import * as util from './support/util';
-import { strategies, suffixes } from 'src/lib/strategies';
-import Element from 'src/Element';
-import Session from 'src/Session';
+import { strategies, suffixes } from '../../src/lib/strategies';
+import Element from '../../src/Element';
+import Session from '../../src/Session';
 import { IRequire } from 'dojo/loader';
+import Promise = require('dojo/Promise');
 import Test = require('intern/lib/Test');
 
 declare const require: IRequire;
@@ -50,7 +49,7 @@ function createStubbedSuite(stubbedMethodName: string, testMethodName: string, p
 	return suite;
 }
 
-registerSuite(function () {
+export default function suite() {
 	let session: Session;
 	let resetBrowserState = true;
 
@@ -895,4 +894,4 @@ registerSuite(function () {
 			});
 		}
 	};
-});
+};

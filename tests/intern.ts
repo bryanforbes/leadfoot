@@ -18,27 +18,10 @@ export const tunnel = 'BrowserStackTunnel';
 
 export const loaderOptions = {
 	packages: [
-		{ name: 'leadfoot', location: '_build' },
-		{ name: 'src', location: '_build/src' },
+		{ name: 'leadfoot', location: '_build/src' },
+		{ name: 'tests', location: '_build/tests' },
 		{ name: 'dojo', location: 'node_modules/dojo'}
-	],
-	map: {
-		'leadfoot/tests/unit/lib': {
-			'src': 'dojo/node!../../../src'
-		},
-		'leadfoot/tests/functional/helpers': {
-			'src': 'dojo/node!../../../src'
-		},
-		'leadfoot/tests/functional/support': {
-			'src': 'dojo/node!../../../src'
-		},
-		'leadfoot/tests/unit': {
-			'src': 'dojo/node!../../src'
-		},
-		'leadfoot/tests/functional': {
-			'src': 'dojo/node!../../src'
-		}
-	}
+	]
 };
 
 export const loaders = {
@@ -46,17 +29,17 @@ export const loaders = {
 };
 
 export const suites = [
-	'dojo/node!leadfoot/tests/unit/lib/util',
-	'dojo/node!leadfoot/tests/unit/compat'
+	'tests/nodeSuite!unit/lib/util',
+	'tests/nodeSuite!unit/compat'
 ];
 
 export const functionalSuites = [
-	'leadfoot/tests/functional/helpers/pollUntil',
-	'leadfoot/tests/functional/Server',
-	'leadfoot/tests/functional/Session',
-	'leadfoot/tests/functional/Element',
-	'leadfoot/tests/functional/Command',
-	'leadfoot/tests/functional/compat'
+	'tests/nodeSuite!functional/helpers/pollUntil',
+	'tests/nodeSuite!functional/Server',
+	'tests/nodeSuite!functional/Session',
+	'tests/nodeSuite!functional/Element',
+	'tests/nodeSuite!functional/Command',
+	'tests/nodeSuite!functional/compat'
 ];
 
 export const excludeInstrumentation = /^(?:tests|node_modules)\//;
