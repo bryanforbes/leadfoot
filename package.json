@@ -12,12 +12,12 @@
     "jszip": "2.5.0"
   },
   "devDependencies": {
-    "@types/node": "~6.0.0",
+    "@types/node": "6.0.48",
     "dojo-loader": "~2.0.0-beta.7",
     "intern": "~3.4.2",
     "tslint": "~4.0.2",
     "typescript": "~2.1.4",
-    "intern-dev": "https://github.com/jason0x43/intern-dev/releases/download/0.1.0-pre/intern-dev-0.1.0-pre.tgz"
+    "intern-dev": "https://github.com/theintern/intern-dev/releases/download/0.1.0/intern-dev-0.1.0.tgz"
   },
   "scripts": {
     "clean": "intern-dev-clean",
