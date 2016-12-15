@@ -9,11 +9,10 @@
   },
   "files": [
     "../node_modules/intern/typings/intern/intern.d.ts",
-    "../types/jszip/jszip.d.ts",
-    "./declarations.d.ts",
-    "./types/**/*.d.ts"
+    "../types/jszip/jszip.d.ts"
   ],
   "include": [
-    "./**/*.ts"
+    "./**/*.ts",
+    "./types/**/*.d.ts"
   ]
 }
