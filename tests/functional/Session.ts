@@ -1,9 +1,10 @@
-import { assert } from 'chai';
+import registerSuite = require('intern!object');
+import * as assert from 'intern/chai!assert';
 import * as util from './support/util';
-import { strategies, suffixes } from '../../src/lib/strategies';
+import { strategies, suffixes } from 'src/lib/strategies';
 import { IRequire } from 'dojo/loader';
-import Element from '../../src/Element';
-import { WebDriverCookie, Geolocation } from '../../src/interfaces';
+import Element from 'src/Element';
+import { WebDriverCookie, Geolocation } from 'src/interfaces';
 import Promise = require('dojo/Promise');
 import Test = require('intern/lib/Test');
 
@@ -12,7 +13,7 @@ declare let interns: any;
 
 type Position = { x: number, y: number };
 
-export default function suite() {
+registerSuite(function () {
 	let session: any;
 	let resetBrowserState = true;
 
@@ -1600,4 +1601,4 @@ export default function suite() {
 		'local storage': createStorageTests('Local'),
 		'session storage': createStorageTests('Session')
 	};
-}
+});

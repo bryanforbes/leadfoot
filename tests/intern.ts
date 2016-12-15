@@ -18,10 +18,25 @@ export const tunnel = 'BrowserStackTunnel';
 
 export const loaderOptions = {
 	packages: [
-		{ name: 'leadfoot', location: '_build/src' },
+		{ name: 'src', location: '_build/src' },
 		{ name: 'tests', location: '_build/tests' },
 		{ name: 'dojo', location: 'node_modules/dojo'}
-	]
+	],
+	map: {
+		'tests': {
+			// map the absolute module `src` so that it uses
+			// the srcLoader to get a relative commonjs library
+			'src': 'tests/srcLoader!../src',
+			// ensure the `dojo` being used in the tests is the
+			// same `dojo` being used by the commonjs library
+			// with the exception of `dojo/node`
+			'dojo': 'dojo/node!dojo',
+			'dojo/node': 'dojo/node'
+		},
+		'tests/srcLoader': {
+			'src': 'src'
+		}
+	}
 };
 
 export const loaders = {
@@ -29,17 +44,17 @@ export const loaders = {
 };
 
 export const suites = [
-	'tests/nodeSuite!unit/lib/util',
-	'tests/nodeSuite!unit/compat'
+	'dojo/has!host-node?tests/unit/lib/util',
+	'dojo/has!host-node?tests/unit/compat'
 ];
 
 export const functionalSuites = [
-	'tests/nodeSuite!functional/helpers/pollUntil',
-	'tests/nodeSuite!functional/Server',
-	'tests/nodeSuite!functional/Session',
-	'tests/nodeSuite!functional/Element',
-	'tests/nodeSuite!functional/Command',
-	'tests/nodeSuite!functional/compat'
+	'tests/functional/helpers/pollUntil',
+	'tests/functional/Server',
+	'tests/functional/Session',
+	'tests/functional/Element',
+	'tests/functional/Command',
+	'tests/functional/compat'
 ];
 
 export const excludeInstrumentation = /^(?:tests|node_modules)\//;
